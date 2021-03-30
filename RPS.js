@@ -24,7 +24,7 @@ function computerPlay() {
 function playRound(playerSelection, computerSelection) {
     playerSelection.toLowerCase(); // lowercase player's selection
     if (playerSelection === computerSelection) {
-        return `It's a tie! Both selected ${playerSelection}!`;
+        return "tie";
     } else if (playerSelection === 'rock') {
         if (computerSelection === 'paper') {
             return "lose";
@@ -60,17 +60,40 @@ function game() {
             playerSelection = prompt("Choose rock, paper, or scissors: ");
             // lowercase player input
             playerSelection = playerSelection.toLowerCase();
-            console.log(playerSelection);
+            
             // if player input isn't valid, restart while loop
             if (playerSelection !== 'rock' && playerSelection !== 'scissors' && playerSelection !== 'paper') {
                 alert("Please choose rock, paper, or scissors!");
                 playerSelection = "";
             }
-
-
-
         }
+        // now the computer generates a play
+        let computerSelection = computerPlay() ;
+
+        // function to compare plays
+        let turnResult = playRound(playerSelection, computerSelection);
+        
+        if (turnResult === "tie") {
+            console.log(`It's a tie! Both selected ${playerSelection}!`);
+        } else if (turnResult === "win") {
+            playerScore++; //update score
+            console.log(`You win- ${playerSelection} beats ${computerSelection}!`);
+        } else {
+            computerScore++; //update score
+            console.log(`You lose- ${playerSelection} loses to ${computerSelection}!`);
+        } 
     }
+
+    // compare scores after 5 rounds, output outcome of game
+    if (playerScore > computerScore) {
+        console.log(`You win the game! ${playerScore} to ${computerScore}.`);
+    } else if (playerScore < computerScore) {
+        console.log(`You lose the game! ${playerScore} to ${computerScore}`);
+    } else {
+        console.log(`Tie game! ${playerScore} to ${computerScore}.`);
+    }
+    
+
 }
 
 game();
