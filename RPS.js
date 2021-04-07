@@ -1,5 +1,3 @@
-console.log("Hello World");
-
 function computerPlay() {
     // generates a random number between 0 and 2
     function randomGenerator() {
@@ -22,10 +20,8 @@ function computerPlay() {
 }
 
 function playRound(playerSelection) {
-    console.log(playerSelection)
-    const computerSelection = computerPlay();
-    console.log(computerSelection)
 
+    const computerSelection = computerPlay();
     playerSelection = playerSelection.toLowerCase(); // lowercase player's selection for str compare
 
     let roundResult = "";
@@ -78,10 +74,10 @@ function endGame(winner) {
 }
 
 function roundClick(e) {
-    console.log(e.target.innerText)
+
     let playerSelection = e.target.innerText;
     let roundResult = playRound(playerSelection);
-    console.log(roundResult);
+
 
     if (roundResult === 'win') {
         playerScore++;
@@ -115,52 +111,10 @@ function game() {
 
     const buttonDiv = document.querySelector('#selection-buttons');
     const buttons = buttonDiv.querySelectorAll('button');
-    console.log(buttons);
+
 
     buttons.forEach(button => button.addEventListener('click', roundClick));
 }
-
-// let playerSelection = "";
-// // prompt player for correct input
-// while (playerSelection === "") {
-//     playerSelection = prompt("Choose rock, paper, or scissors: ");
-//     // lowercase player input
-//     playerSelection = playerSelection.toLowerCase();
-
-//     // if player input isn't valid, restart while loop
-//     if (playerSelection !== 'rock' && playerSelection !== 'scissors' && playerSelection !== 'paper') {
-//         alert("Please choose rock, paper, or scissors!");
-//         playerSelection = "";
-//     }
-
-//     // now the computer generates a play
-//     let computerSelection = computerPlay();
-
-//     // function to compare plays
-//     let turnResult = playRound(playerSelection, computerSelection);
-
-//     if (turnResult === "tie") {
-//         console.log(`It's a tie! Both selected ${playerSelection}!`);
-//     } else if (turnResult === "win") {
-//         playerScore++; //update score
-//         console.log(`You win- ${playerSelection} beats ${computerSelection}!`);
-//     } else {
-//         computerScore++; //update score
-//         console.log(`You lose- ${playerSelection} loses to ${computerSelection}!`);
-//     }
-// }
-
-// // compare scores after 5 rounds, output outcome of game
-// if (playerScore > computerScore) {
-//     console.log(`You win the game! ${playerScore} to ${computerScore}.`);
-// } else if (playerScore < computerScore) {
-//     console.log(`You lose the game! ${playerScore} to ${computerScore}`);
-// } else {
-//     console.log(`Tie game! ${playerScore} to ${computerScore}.`);
-// }
-
-
-//}
 
 let playerScore;
 let computerScore ;
