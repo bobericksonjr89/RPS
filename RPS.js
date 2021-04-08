@@ -58,13 +58,13 @@ function endGame(winner) {
 
     // grab all the game buttons and remove event listener
     const buttonDiv = document.querySelector('#selection-buttons');
-    const buttons = buttonDiv.querySelectorAll('button');
+    const buttons = buttonDiv.querySelectorAll('input');
     buttons.forEach(button => button.removeEventListener('click', roundClick));
 
     const endGamePara = document.querySelector('#final-results');
 
     if (winner === 'player') {
-        
+
         endGamePara.innerText = 'Congrats! You won the game!'
         return;
     } else {
@@ -74,8 +74,8 @@ function endGame(winner) {
 }
 
 function roundClick(e) {
-
-    let playerSelection = e.target.innerText;
+    console.log(e);
+    let playerSelection = e.target.name;
     let roundResult = playRound(playerSelection);
 
 
@@ -107,15 +107,16 @@ function game() {
     computerScore = 0;
     document.querySelector('#player-score').innerText = `Player Score: ${playerScore}`;
     document.querySelector('#computer-score').innerText = `Computer Score: ${computerScore}`;
-    document.querySelector('#results').innerText = 'Result:'
+    document.querySelector('#results').innerText = '';
+    document.querySelector('#final-results').innerText = '';
 
     const buttonDiv = document.querySelector('#selection-buttons');
-    const buttons = buttonDiv.querySelectorAll('button');
+    const buttons = buttonDiv.querySelectorAll('input');
 
 
     buttons.forEach(button => button.addEventListener('click', roundClick));
 }
 
 let playerScore;
-let computerScore ;
+let computerScore;
 game();

@@ -1,27 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-       <title>Rock Paper Scissors</title> 
-       <meta charset="UTF-8">
-       <link rel="stylesheet" href="reset.css">
-       <link rel="stylesheet" href="RPS.css">
-    </head>
-    <body>
+
+<head>
+    <title>Rock Paper Scissors</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="RPS.css">
+</head>
+
+<body>
+    <div id="body-container">
         <h1>RPS</h1>
         <div id="selection-buttons">
-            <button>Rock</button>
             <!-- Image by OpenClipart-Vectors from Pixabay -->
             <input type="image" src="/images/rock.png" name="rock" class="" id="">
-
-            <button>Paper</button>
             <!-- Image by OpenClipart-Vectors from Pixabay -->
             <input type="image" src="/images/paper.png" name="paper" class="" id="">
-            <button>Scissors</button>
             <!-- Image by Thanks for your Like • donations welcome from Pixabay -->
             <input type="image" src="/images/scissors.png" name="scissors" class="" id="">
         </div>
         <div id="info">
-            <p id="results">Result:</p>
+            <p id="results"></p>
             <div id="scores">
                 <p id="player-score">Player Score: 0</p>
                 <p id="computer-score">Computer Score: 0</p>
@@ -29,7 +29,8 @@
             <p id="final-results"></p>
         </div>
         <button id="play-again">Play Again</button>
+    </div>
+    <script src="RPS.js"></script>
+</body>
 
-        <script src="RPS.js"></script>
-    </body>
 </html>
